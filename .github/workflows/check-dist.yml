@@ -49,22 +49,3 @@ jobs:
         with:
           name: dist
           path: dist/
-
-      - name: Create a pull request to fix the dist/ directory
-        if: ${{ failure() && steps.diff.conclusion == 'failure' && github.event_name == 'push' }}
-        run: |
-          git config user.name "GitHub Actions"
-          git config user.email "<>"
-          git switch -c $PR_BRANCH
-          git commit -am "Rebuild dist from sources"
-          git push --force origin $PR_BRANCH
-          gh pr create \
-          --head "${PR_BRANCH}" \
-          --base "${TARGET_BRANCH}" \
-          --title "Rebuild dist for ${TARGET_BRANCH}" \
-          --body "Rebuilt dist for ${TARGET_BRANCH} from sources."
-        shell: bash
-        env:
-          PR_BRANCH: actions/rebuild-dist
-          TARGET_BRANCH: ${{ github.ref_name }}
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
