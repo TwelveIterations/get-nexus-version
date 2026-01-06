@@ -1,0 +1,36 @@
+{
+  "name": "get-nexus-version",
+  "version": "1.0.0",
+  "description": "Finds the latest Nexus artifact version for a Minecraft version",
+  "main": "index.js",
+  "scripts": {
+    "lint": "eslint .",
+    "prepare": "ncc build index.js -o dist --source-map --license licenses.txt",
+    "test": "jest",
+    "all": "npm run lint && npm run prepare && npm run test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TwelveIterations/get-nexus-version.git"
+  },
+  "keywords": [
+    "GitHub",
+    "Actions",
+    "JavaScript"
+  ],
+  "author": "BlayTheNinth",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/TwelveIterations/get-nexus-version/issues"
+  },
+  "homepage": "https://github.com/TwelveIterations/get-nexus-version#readme",
+  "dependencies": {
+    "@actions/core": "^1.11.1",
+    "cross-fetch": "^4.1.0"
+  },
+  "devDependencies": {
+    "@vercel/ncc": "^0.38.4",
+    "eslint": "^9.39.1",
+    "jest": "^30.2.0"
+  }
+}

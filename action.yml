@@ -1,0 +1,24 @@
+name: 'Get Nexus artifact Version'
+description: 'Finds the latest Nexus artifact version matching a version search string'
+inputs:
+  nexusUrl:
+    description: 'Base URL of the Nexus server (e.g., https://repo.example.com)'
+    required: true
+  repository:
+    description: 'Repository name (e.g., releases)'
+    required: true
+  groupId:
+    description: 'Maven group ID (e.g., net.neoforged)'
+    required: true
+  artifactId:
+    description: 'Maven artifact ID (e.g., neoforge)'
+    required: true
+  version:
+    description: 'Version to search for (e.g., 21.11.* for wildcard matching)'
+    required: false
+outputs:
+  version:
+    description: 'The latest artifact version matching the search criteria'
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
