@@ -29,5 +29,5 @@ outputs:
     description: 'The latest artifact version matching the search criteria'
 
 runs:
-  using: node22
+  using: node20
   main: dist/index.js
