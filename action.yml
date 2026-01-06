@@ -1,5 +1,12 @@
 name: 'Get Nexus artifact Version'
-description: 'Finds the latest Nexus artifact version matching a version search string'
+description:
+  'Finds the latest Nexus artifact version matching a version search string'
+author: Twelve Iterations
+
+branding:
+  icon: heart
+  color: red
+
 inputs:
   nexusUrl:
     description: 'Base URL of the Nexus server (e.g., https://repo.example.com)'
@@ -16,9 +23,11 @@ inputs:
   version:
     description: 'Version to search for (e.g., 21.11.* for wildcard matching)'
     required: false
+
 outputs:
   version:
     description: 'The latest artifact version matching the search criteria'
+
 runs:
-  using: 'node16'
-  main: 'dist/index.js'
+  using: node22
+  main: dist/index.js
